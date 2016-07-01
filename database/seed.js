@@ -49,4 +49,6 @@ var seedTerms = [
 
 Question.collection.drop(); // Resets database for seeding.
 
-Question.create(seedTerms); // seeds each term in the array.
+Question.insertMany(seedTerms, function() {
+  mongoose.disconnect();
+}); // seeds each term in the array.
